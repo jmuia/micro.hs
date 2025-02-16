@@ -20,6 +20,11 @@ Inspired by the likes of [Spacemacs](https://www.spacemacs.org/), [Doom Emacs](h
 
 ## Configuration
 
+*NOTE: the following examples, and the source code itself, are written in
+[Fennel](https://fennel-lang.org/), a Lisp syntax that stays very close to
+normal Lua semantics. In the future the complied Lua files will be distributed
+directly to avoid needing to integrate Fennel compilation into your config.*
+
 Configuring key chord trees is simple. See [below](#integration) for integrating key chords into
 your main config.
 
