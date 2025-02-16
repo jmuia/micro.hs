@@ -20,6 +20,9 @@ Inspired by the likes of [Spacemacs](https://www.spacemacs.org/), [Doom Emacs](h
 
 ## Configuration
 
+Configuring key chord trees is simple. See [below](#integration) for integrating key chords into
+your main config.
+
 ```clojure
 ;; A chord-tree is just a tree data structure, built out of nodes in the form
 ;; of [:key :name list-or-function], where a list as the last element creates
