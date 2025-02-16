@@ -8,7 +8,7 @@ For exmaple, hitting the `<LEADER>` keybinding brings up the root menu:
 
 ![alt text](../../../assets/micro.chords-example-1.png)
 
-Then, hitting `c` brings up the Chrome sub-menu:
+Then, hitting `a` brings up the `applications` sub-menu:
 
 ![alt text](../../../assets/micro.chords-example-2.png)
 
