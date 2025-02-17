@@ -190,7 +190,6 @@
     canvas)
 
 (lambda make-chorder-ui []
-    (var show false)
     (var canvas nil)
 
     (lambda on-event [event]
