@@ -4,7 +4,7 @@ micro.chords provides key chords to organize hammerspoon functionality as
 an alternative to traditional key bindings, along with a visual interface
 for discoverability.
 
-For exmaple, hitting the `<LEADER>` keybinding brings up the root menu:
+For example, hitting the `<LEADER>` keybinding brings up the root menu:
 
 ![alt text](../../../assets/micro.chords-example-1.png)
 
@@ -101,6 +101,8 @@ To exit, hit `escape`, or any other unbound key.
 Inspired by the Emacs package [Hydra](https://github.com/abo-abo/hydra), 
 
 ## Integration
+
+See [Embedding Fennel](../../../README.md#embedding-fennel) if you haven't set up Fennel with your Hammerspoon configuration before.
 
 Here is an example of integrating key chords into your hammerspoon config:
 
