@@ -2,6 +2,12 @@
 
 micro.hs is a collection of utilities & libraries for Obsidian, modeled loosely on [mini.nvim](https://github.com/echasnovski/mini.nvim).
 
+## Modules
+
+| name | description |
+| --- | --- |
+| [chords](fnl/micro/chords/README.md) | provides key chords to organize hammerspoon functionality as an alternative to traditional key bindings, along with a visual interface for discoverability. |
+
 ## Fennel
 
 If you don't already use Fennel there will be an extra step needed to make use of micro.hs. In the future I'll look into providing the code here as pre-compiled Lua code, but that is more complicated to distribute so no promises.
