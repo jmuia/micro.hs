@@ -1,6 +1,6 @@
 # micro.hs
 
-micro.hs is a collection of utilities & libraries for Obsidian, modeled loosely on [mini.nvim](https://github.com/echasnovski/mini.nvim).
+micro.hs is a collection of utilities & libraries for Hammerspoon, modeled loosely on [mini.nvim](https://github.com/echasnovski/mini.nvim).
 
 ## Modules
 
