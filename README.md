@@ -6,7 +6,9 @@ micro.hs is a collection of utilities & libraries for Obsidian, modeled loosely 
 
 | name | description |
 | --- | --- |
-| [chords](fnl/micro/chords/README.md) | provides key chords to organize hammerspoon functionality as an alternative to traditional key bindings, along with a visual interface for discoverability. |
+| [chords](fnl/micro/chords/README.md) | Provides key chords to organize hammerspoon functionality as an alternative to traditional key bindings, along with a visual interface for discoverability. |
+
+There are other files under `fnl/micro` that are incomplete (or even empty). They're ideas for future modules.
 
 ## Fennel
 
