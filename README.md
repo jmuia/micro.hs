@@ -11,13 +11,18 @@ If you don't already use Fennel there will be an extra step needed to make use o
 Fennel is a light syntax layer on top of Lua that fixes some of the sharp edges of the language. Fennel has no runtime and is easy and transparent to embed.
 
 1. Download the Fennel script by following the first step [here](https://fennel-lang.org/setup#downloading-the-fennel-script)
-2. Move the script into your hammerspoon root (e.g., `~/.hammerspoon`)
+2. Move the script into your hammerspoon root (`~/.hammerspoon` in this example)
     - I locate mine at `~/.hammerspoon/fennel/fennel.lua`
 3. "Install" Fennel in `init.lua`:
 
 ```clojure
-;; setup path.searchers to recognize and handle .fnl files
-require("fennel/fennel").install()
+;; `require` the fennel script using the normal Lua require rules.
+;; Call `.install()` to configure path.searchers to recognize and handle .fnl files.
+;; E.g.:
+
+;; require("fennel").install() ;; if located at ~/.hammerspoon/fennel.lua
+require("fennel/fennel").install() ;; if located at ~/.hammerspoon/fennel/fennel.lua
+
 ;; fennel files can now be required just like Lua files, e.g.:
 require("a-fennel-file") ;; no '.fnl' needed
 ```
