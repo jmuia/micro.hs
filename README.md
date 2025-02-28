@@ -1,6 +1,6 @@
 # micro.hs
 
-micro.hs is a collection of utilities & libraries for Obsidian, modeled losely on [mini.nvim](https://github.com/echasnovski/mini.nvim).
+micro.hs is a collection of utilities & libraries for Obsidian, modeled loosely on [mini.nvim](https://github.com/echasnovski/mini.nvim).
 
 ## Fennel
 
@@ -27,7 +27,31 @@ require("fennel/fennel").install() ;; if located at ~/.hammerspoon/fennel/fennel
 require("a-fennel-file") ;; no '.fnl' needed
 ```
 
+## Installing all of `micro.hs`
+
+The gist is that you want to checkout the repo somewhere that retains its structure as a git repo (so you can continue to pull updates) while making the code in `micro.hs/fnl/micro` available for your Hammerspoon config to import.
+
+### Linking the modules
+
+The second step can be accomplished by using a symlink from your Hammerspoon root, e.g.:
+
+```bash
+$ ln -s <micro.hs-checkout-location>/fnl/micro <hammerspoon-root>/micro
+```
+
+This makes all of the `micro.hs` modules available as `micro.<module-name>`, e.g., `micro.chords`.
+
+You can add `micro` to your `.gitignore`, depending on your setup
+
+### Checking out the repo
+
+This will come down to how you have set up your Hammerspoon config with version control.
+
+For example, in [my config](https://git.corp.stripe.com/jshumway/hammerspoon) I added `micro.hs` as a submodule, so that I could version my configuration as a separate repository without interfering with the `micro.hs` repository.
+
+Some people like to checkout repositories into a `./Spoons` directory that isn't checked in to VCS, which is also reasonable.
+
 ## Todo
 
-- [ ] explain installing all of `micro.hs`, including symlinking `micro.hs/fnl/micro` as `micro` in the Hammerspoon root, so imports like `require(micro.<module>)` work
+- [X] explain installing all of `micro.hs`, including symlinking `micro.hs/fnl/micro` as `micro` in the Hammerspoon root, so imports like `require(micro.<module>)` work
 - [ ] explain converting the Fennel example configurations to Lua syntax if people want to configure it that way
