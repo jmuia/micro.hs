@@ -74,27 +74,33 @@ local function build_ui(data, chord)
   end
   canvas:insertElement({type = "rectangle", action = "fill", roundedRectRadii = {xRadius = container_border_radius, yRadius = container_border_radius}, fillColor = background_color, frame = {x = canvas_margin, y = (canvas_margin + chord_report_height + chord_report_offset_y), h = container_height, w = container_width}, withShadow = true, shadow = {blurRadius = 10.0, color = shadow_color, offset = {h = -2, w = 1}}})
   table.sort(data, cmp_semi_case_insensitive)
-  for n, _11_ in ipairs(data) do
-    local _each_12_ = _11_
-    local key = _each_12_[1]
-    local name = _each_12_[2]
+  for n, entry in ipairs(data) do
+    local key = entry[1]
+    local name = entry[2]
+    local opts
+    if (4 == #entry) then
+      opts = entry[3]
+    else
+      opts = {}
+    end
+    local display_key = (opts.display or key)
     local c = math.floor(((n - 1) / max_cols))
     local r = ((n - 1) % max_cols)
     local cell_x = (canvas_margin + x_margin + (r * cell_width) + (r * x_padding))
     local cell_y = (canvas_margin + chord_report_height + chord_report_offset_y + y_margin + (c * cell_height) + (c * y_padding))
-    local _13_
+    local _12_
     if (key == string.upper(key)) then
-      _13_ = 2
+      _12_ = 2
     else
-      _13_ = 0
+      _12_ = 0
     end
-    local _15_
+    local _14_
     if (key == string.upper(key)) then
-      _15_ = 3
+      _14_ = 3
     else
-      _15_ = 0
+      _14_ = 0
     end
-    canvas:insertElement({type = "text", action = "fill", frame = {x = cell_x, y = (cell_y + text_padding_t + -1), w = key_width, h = cell_height}, text = hs.styledtext.new(key, {font = {name = (name_font_face .. " Bold"), size = (2 + font_size)}, color = accent_color, underlineStyle = _13_, baselineOffset = _15_})})
+    canvas:insertElement({type = "text", action = "fill", frame = {x = cell_x, y = (cell_y + text_padding_t + -1), w = key_width, h = cell_height}, text = hs.styledtext.new(display_key, {font = {name = (name_font_face .. " Bold"), size = (2 + font_size)}, color = accent_color, underlineStyle = _12_, baselineOffset = _14_})})
     canvas:insertElement({type = "text", text = name, action = "fill", frame = {x = (cell_x + key_width + key_padding_r), y = (cell_y + text_padding_t), w = (cell_width - key_width - key_padding_r), h = cell_height}, textAlignment = "left", textColor = foreground_color, textFont = name_font_face, textSize = font_size})
   end
   return canvas
@@ -102,7 +108,7 @@ end
 local function make_chorder_ui()
   local canvas = nil
   local function on_event(event)
-    _G.assert((nil ~= event), "Missing argument event on fnl/micro/chords/ui.fnl:195")
+    _G.assert((nil ~= event), "Missing argument event on fnl/micro/chords/ui.fnl:200")
     if ((_G.type(event) == "table") and (event[1] == "update") and (nil ~= event[2]) and (nil ~= event[3])) then
       local data = event[2]
       local chord = event[3]
@@ -111,14 +117,14 @@ local function make_chorder_ui()
       else
       end
       canvas = build_ui(data, chord)
-      local function _18_()
+      local function _17_()
         if canvas then
           return 0
         else
           return 0.15
         end
       end
-      return canvas:show(_18_())
+      return canvas:show(_17_())
     elseif ((_G.type(event) == "table") and (event[1] == "done") and (nil ~= event[2])) then
       local status = event[2]
       if canvas then
