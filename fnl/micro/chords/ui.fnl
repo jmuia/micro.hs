@@ -144,10 +144,15 @@
 
     (table.sort data cmp-semi-case-insensitive)
 
-    (each [n [key name] (ipairs data)]
+    (each [n entry (ipairs data)]
+        (local key (. entry 1))
+        (local name (. entry 2))
+        (local opts (if (= 4 (length entry)) (. entry 3) {}))
+        (local display-key (or opts.display key))
+
         (local c (-> n (- 1) (/ max-cols) (math.floor)))
         (local r (-> n (- 1) (% max-cols)))
-        
+
         (local cell-x
             (+ canvas-margin x-margin (* r cell-width) (* r x-padding)))
         (local cell-y
@@ -163,7 +168,7 @@
                 :w key-width
                 :h cell-height
             }
-            :text (hs.styledtext.new key {
+            :text (hs.styledtext.new display-key {
                 :font {:name (.. name-font-face " Bold") :size (+ 2 font-size) }
                 :color accent-color
                 :underlineStyle (if (= key (string.upper key)) 2 0)
